@@ -86,7 +86,7 @@ int main(void) {
 	return 0;
 }
 
-f32 evaluate(u8 *buffer) {
+f32 evaluate(u8 *buffer) {//6*5-1/9
     f32 result = 0.0f;
     f32 num = 0.0f;
     s8 op = '+';
@@ -103,12 +103,14 @@ f32 evaluate(u8 *buffer) {
             s8 c = buffer[i];
             i++;
             f32 next_num = 0.0f;
+            u8 flagNextNum=0;
             while (i < length && buffer[i] == ' ') {
                 i++;
             }
             while (i < length && buffer[i] >= '0' && buffer[i] <= '9') {
                 next_num = next_num * 10.0f + (buffer[i] - '0');
                 i++;
+                flagNextNum++;
             }
             while (i < length && buffer[i] == ' ') {
                 i++;
@@ -116,6 +118,10 @@ f32 evaluate(u8 *buffer) {
             if (c == '*') {
                 num *= next_num;
             } else {
+            	if(flagNextNum<1){
+            		flagSyntax=1;
+            		return flagSyntax;
+            	}
                 if (next_num == 0.0f) {
                 	flagZero = 1;
                 	return flagZero;
