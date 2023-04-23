@@ -28,7 +28,7 @@
 u8 flagClear = 0, flagZero = 0,flagSyntax=0; //to clear LCD after every process, detect dividing by 0
 
 /* functions declaration */
-f32 evaluate(u8 *buffer);
+f64 evaluate(u8 *buffer);
 
 /* main */
 int main(void) {
@@ -59,7 +59,7 @@ int main(void) {
 		} else if (key == '=') {
 			flagClear = 1;    //flag is up after every process
 			buffer[buffer_position] = '\0'; // terminate the string
-			f32 result = evaluate(buffer);//calling the evaluate function to calculate the buffer
+			f64 result = evaluate(buffer);//calling the evaluate function to calculate the buffer
 			if (flagZero == 1) {//when divide by zero flag is up
 				LCD_voidGotoxy(2, 1);
 				LCD_voidSendString("error div by 0");
@@ -86,8 +86,8 @@ int main(void) {
 	return 0;
 }
 
-f32 evaluate(u8 *buffer) {//6*5-1/9
-    f32 result = 0.0f;
+f64 evaluate(u8 *buffer) {//6*5-1/9
+    f64 result = 0.0f;
     f32 num = 0.0f;
     s8 op = '+';
     s16 length = strlen(buffer);

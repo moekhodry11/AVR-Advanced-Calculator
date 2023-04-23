@@ -282,13 +282,13 @@ void LCD_voidSendIntger(s32 Copy_s32Data) {
 	LCD_voidSendString(str);
 }
 
-void LCD_voidSendFloat(f32 Copy_f32Data) {
-	s16 int_part;
+void LCD_voidSendFloat(f64 Copy_f32Data) {
+	s32 int_part;
 	f32 frac_part;
 	// separate integer and fractional parts
-	int_part = (s16) Copy_f32Data;
+	int_part = (s32) Copy_f32Data;
 	frac_part = Copy_f32Data - int_part;
-	frac_part = (s16) (frac_part * 1000);
+	frac_part = (s32) (frac_part * 1000);
 	LCD_voidSendIntger(int_part);
 	LCD_voidSendChar('.');
 	LCD_voidSendIntger(frac_part);

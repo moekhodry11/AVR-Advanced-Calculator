@@ -55,7 +55,7 @@ void LCD_voidSendChar(u8 Copy_u8Data);
 void LCD_voidSendString (u8* Copy_pu8String);
 
 void LCD_voidSendIntger(s32 Copy_s32Data);
-void LCD_voidSendFloat(f32 Copy_f32Data);
+void LCD_voidSendFloat(f64 Copy_f32Data);
 
 void LCD_voidGotoxy (u8 Copy_u8Y,u8 Copy_u8X);
 void LCD_voidSendExtraChar (u8 Copy_u8Y,u8 Copy_u8X);
