@@ -19,12 +19,9 @@ This repository contains the source code and documentation for a simple calculat
 
 # Software Requirements
 - AVR-GCC compiler
-- AVRDUDE programmer
 - GNU Make build system
-- AVR-LibC standard library
-- AVR-GCC C standard library
-- AVR-GCC math library
-- AVR-GCC IO library
+- AVR library
+- My drivers
 
 #Usage
 To use the calculator, simply connect the Atmega32 microcontroller to the LCD display and keypad using jumper wires and a breadboard or PCB. Then, compile the source code using AVR-GCC and AVRDUDE, and upload the resulting binary file to the microcontroller using a programmer. Finally, power on the calculator and start calculating!
